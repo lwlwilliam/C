@@ -65,19 +65,19 @@ printf("%f", 1.0/3.0);
 	1. 基本类型
 		1. 数值数型
 			1. 整型
-				a. 短整型 short
-				b. 整型 int
-				c. 长整型 long
+				* 短整型 short
+				* 整型 int
+				* 长整型 long
 			2. 浮点型
-				a. 单精度型 float
-				b. 双精度型 double
+				* 单精度型 float
+				* 双精度型 double
 		2. 字符类型 char
 
 	2. 构造类型
-		a. 数组
-		b. 结构体 struct
-		c. 共用体 union
-		d. 枚举类型 enum
+		* 数组
+		* 结构体 struct
+		* 共用体 union
+		* 枚举类型 enum
 	
 	3. 指针类型
 
