@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<string.h>
 
 int main()
 {
@@ -15,19 +16,19 @@ int main()
 
 	printf("%s\n%s\n%s\n", d, e, f);
 
-	if (d == e) {
+	if (d == e || strcmp(d, e) == 0) {
 		printf("d == e\n");
 	} else {
 		printf("d != e\n");
 	}
 
-	if (d == f) {
+	if (d == f || strcmp(d, f) == 0) {
 		printf("d == f\n");
 	} else {
 		printf("d != f\n");
 	}
 
-	if (e == f) {
+	if (e == f || strcmp(e, f) == 0) {
 		printf("e == f\n");
 	} else {
 		printf("e != f\n");
