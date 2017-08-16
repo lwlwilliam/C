@@ -43,4 +43,4 @@ clean:
 	rm -rf *.o test
 ```
 
-如上，OBJS和CC就是宏时。
+如上，OBJS和CC就是宏。
