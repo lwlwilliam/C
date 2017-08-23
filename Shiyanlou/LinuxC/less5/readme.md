@@ -73,3 +73,44 @@ ssize_t read(int fd, void * buf, size_t  count)
 3. count：期望本次能读取到的最大字节数。size_t是系统头文件中用typedef定义的数据类型，相当于unsigned int
 
 
+##### write
+
+需要包含的头文件：`<unistd.h>`
+
+函数原型：
+
+```
+ssize_t write(int fd, const void *buf, size_t count)
+```
+
+功能：向打开的文件写数据
+
+返回值：写入成功返回实际写入的字节数，出错返回-1
+
+** 不得不提的是，返回-1的常见原因是：磁盘空间已满，超过了一个给定进程的文件长度 **
+
+fd：要写入文件的文件描述符
+buf：要写入文件的数据在内存中存放位置的首地址
+count：期望写入的数据的最大字节数
+
+read和write使用范例：
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int main()
+{
+	char buf[100];
+	int num = 0;
+
+	// 获取键盘输入，还记得POSIX的文件描述符吗？
+	if ((num = read(STDIO_FILENO, buf, 10)) == -1) {
+		printf("read error");
+		error(-1);
+	} else {
+		// 将键盘输入又输出到屏幕上
+	}
+}
+```
