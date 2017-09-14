@@ -4,9 +4,10 @@ void exchange(int * q1,int * q2,int * q3);
 
 int main()
 {
-   int a,b,c,*p1,*p2,*p3;
-   printf("please enter 3 integer number:");
-   scanf("%d%d%d",&a,&b,&c);
+   int a, b, c, *p1, *p2, *p3;
+
+   printf("please enter 3 integer number: ");
+   scanf("%d%d%d", &a, &b, &c);
    p1=&a;p2=&b;p3=&c;
    exchange(p1,p2,p3);
    printf("the order is :%d,%d,%d\n",a,b,c);
