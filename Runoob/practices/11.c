@@ -18,15 +18,27 @@ int main()
 		f1 = f1 + f2;
 		f2 = f1 + f2;
 	}
-	return 0;
 	*/
 
-	// 方法二：递归，斐波那契散列
+	// 方法二：递归，斐波那契散列(不建议用，无用功太多)
+	/*
 	int i;
 	printf("month\tnumber\n");
 	for (i = 1; i < 41; i ++) {
 		printf("%d\t%d\n", i, fibonacci(i));
 	}
+	*/
+
+	// 方法三
+	int now = 1, prev_1 = 1, prev_2 = 0, i;
+	printf("%d\n", now);
+	for (i = 1; i < 40; i ++) {
+		now = prev_1 + prev_2;
+		printf("%i\n", now);
+		prev_2 = prev_1;
+		prev_1 = now;
+	}
+
 	return 0;
 }
 
