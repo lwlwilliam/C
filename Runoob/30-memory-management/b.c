@@ -11,10 +11,11 @@ int main()
 
 	// 动态分配内存
 	description = malloc(30 * sizeof(char));
+
 	if (description == NULL) {
 		fprintf(stderr, "Error - unable to allocate required memory\n");
 	} else {
-		strcpy(description, "Zara ali a DPS student.");
+		strcpy(description, "Zara ali a DPS student. ");
 	}
 
 	// 假设想要存储更大的描述信息
@@ -22,12 +23,15 @@ int main()
 	if (description == NULL) {
 		fprintf(stderr, "Error - unable to allocate required memory\n");
 	} else {
-		strcat(description, "She is in class 10th");
+		strcat(description, "She is in class 10th.");
 	}
+
 
 	printf("Name = %s\n", name);
 	printf("Description : %s\n", description);
 
 	// 使用free()函数释放内存
 	free(description);
+
+	return 0;
 }
