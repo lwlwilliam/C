@@ -16,11 +16,11 @@ int main()
 
 编译运行以上程序后，与用户的交互如下：
 
-** Hello, there. I would[enter]**
+**Hello, there. I would[enter]**
 
 Hello, there. I would
 
-** like a #3 bag of potatoes.[enter]**
+**like a #3 bag of potatoes.[enter]**
 
 like a
 
