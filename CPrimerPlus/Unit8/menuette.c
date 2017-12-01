@@ -1,3 +1,4 @@
+/* menuette.c -- 菜单程序 */
 #include <stdio.h>
 char get_choice(void);
 char get_first(void);
