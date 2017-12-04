@@ -72,3 +72,50 @@ C99 增加了一个新特性，`指定初始化器(designated initializer)`。�
 而 C99 规定，可以在初始化列表中使用带方括号的下标指明待初始化的元素：
 `int arr[6] = {[5] = 212};  // 把 arr[5] 初始化为 212`。
 对于未初始化的元素都会被设置为 0。
+
+>> 给数组元素赋值
+
+声明数组后，可以借助下标（或索引）给数组元素赋值。例如：
+
+```
+/* 给数组的元素赋值 */
+#include <stdio.h>
+#define SIZE 50
+int main()
+{
+	int counter, evens[SIZE];
+
+	for (counter = 0; counter < SIZE; counter ++) {
+		evens[counter] = 2 * counter;	
+	}
+
+	return 0;
+}
+```
+
+注意，这段代码中使用循环给数组的元素依次赋值。
+C 不允许把数组作为一个单元赋给另一个数组，
+除初始化以外也不允许使用花括号列表的形式赋值。
+以下是一些错误的赋值形式：
+
+```
+/* 一些无效的数组赋值 */
+#include <stdio.h>
+#define SIZE 5
+int main()
+{
+	int oxen[SIZE] = {5, 3, 2, 8};  // 初始化没问题
+	int yaks[SIZE];
+
+	yaks = oxen;  // 不允许
+	yaks[SIZE] = oxen[SIZE];  // 数组下标越界
+	yaks[SIZE] = {5, 3, 2, 8};  // 不起作用
+
+	return 0;
+}
+```
+
+>> 数组边界
+
+在使用数组时，要防止数组下标起出边界。也就是说，必须确保下标是有效的值。
+例如：`int doofi[20]`，在使用该数组时，要确保程序中使用的数组下标在 0 ~ 19 的范围内。
