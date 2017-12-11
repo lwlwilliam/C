@@ -14,7 +14,7 @@ int main()
 		puts("Number not correctly entered -- bye.");
 		exit(EXIT_FAILURE);
 	}
-	ptd = (double*) malloc(max * sizeof(double));
+	ptd = (double*) malloc(max * sizeof(double));  // 在 C 中，不一定要使用强制类型转换(double*)，但是在 C++ 中必须使用。所以，使用强制类型转换更容易把 C 程序转换为 C++ 程序。
 	if (ptd == NULL) {
 		puts("Memory allocation failed. Goodbye.");
 		exit(EXIT_FAILURE);
