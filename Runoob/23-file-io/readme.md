@@ -66,7 +66,7 @@ int fgetc(FILE *fp);
 fgetc()函数从fp所指向的输入文件中读取一个字符。返回值是读取的字符，如果发生错误则返回EOF。下面的函数允许你从流中读取一个字符串：
 
 ```
-char *fgetc(char *buf, int n, FILE *fp);
+char *fgets(char *buf, int n, FILE *fp);
 ```
 
 函数fgets()从fp所指向的输入流中读取n-1个字符。它会把读取的字符串复制到缓 冲区buf，并在最后追加一个null字符来终止字符串。
