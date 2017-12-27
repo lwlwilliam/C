@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "head.h"
 #define TSIZE 45
 
 struct film {
@@ -9,8 +10,6 @@ struct film {
     int rating;
     struct film *next;
 };
-
-char *s_gets(char *st, int n);
 
 int main()
 {
@@ -62,21 +61,4 @@ int main()
     printf("Bye!\n");
 
     return 0;
-}
-
-char *s_gets(char *st, int n)
-{
-    char *ret_val;
-    char *find;
-
-    ret_val = fgets(st, n, stdin);
-    if (ret_val) {
-        find = strchr(st, '\n');
-
-        if (find)
-            *find = '\0';
-        else
-            while (getchar() != '\n')
-                continue;
-    }
 }
