@@ -1,2 +1,2 @@
-### CTest
-These are my C Language practices.
+### CNotes
+These are my C Language study notes.
