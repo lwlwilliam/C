@@ -1,7 +1,7 @@
 /* linkedList.c, 支持链表操作的函数 */
 #include <stdio.h>
 #include <stdlib.h>
-#include "list.h"
+#include "linkedList.h"
 
 /* 局部函数 */
 static void CopyToNode(Item item, Node *pnode);
@@ -89,4 +89,23 @@ void Traverse(const List *plist, void(*pfun)(Item item))
         (*pfun)(pnode->item);
         pnode = pnode->next;
     }
+}
+
+/* 释放已分配的内存 */
+void EmptyTheList(List *plist)
+{
+    Node *psave;
+
+    while (*plist != NULL) {
+        psave = (*plist)->next;  /* 保存下一个节点的地址 */
+        free(*plist);            /* 释放当前节点 */
+        *plist = psave;          /* 前进至下一个节点 */
+    }
+}
+
+/* 局部函数定义 */
+/* 把一个项拷贝到节点中 */
+static void CopyToNode(Item item, Node *pnode)
+{
+    pnode->item = item;
 }

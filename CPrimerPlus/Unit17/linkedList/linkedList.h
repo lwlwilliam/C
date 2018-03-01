@@ -5,14 +5,13 @@
 
 /* 特定程序的声明 */
 #define TSIZE 45    /* 储存电影名的数组大小 */
-struct file
+typedef struct film
 {
-    char title[TSIZE]
+    char title[TSIZE];
     int rating;
-};
+} Item;
 
 /* 一般类型定义 */
-typedef struct film Item;
 typedef struct node
 {
     Item item;
