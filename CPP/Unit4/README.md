@@ -134,3 +134,5 @@ printf("The score was Squids %d, Slugs %d.\n", score1);
 [floats.c](floats.c)
 
 [flags.c](flags.c)
+
+[stringf.c](stringf.c)
