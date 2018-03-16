@@ -1,5 +1,5 @@
 /* stringf.c -- 字符串格式 */
-#include <stdio.h.>
+#include <stdio.h>
 #define BLURB "Authemtic imitation!"
 int main(void)
 {
