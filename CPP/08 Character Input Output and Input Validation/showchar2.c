@@ -1,4 +1,4 @@
-/* showchar.c -- 按指定的行列打印字符 */
+/* showchar2.c -- 按指定的行列打印字符 */
 #include <stdio.h>
 void display(char cr, int lines, int width);
 int main()
