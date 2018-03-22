@@ -246,3 +246,84 @@ goto 的常见情况：
 	flag = 2;
 	b: bill = cost * flag;
 	```
+
+	等价于：
+
+	```
+	if (size > 12) {
+		cost = cost * 1.05;
+		flag = 2;
+	}
+	bill = cost * flag;
+	```
+
+2.	二选一：
+
+	```
+	if (ibex > 14)
+		goto a;
+	sheds = 2;
+	goto b;
+	a: sheds = 3;
+	b: help = 2 * sheds;
+	```
+
+	等价于：
+
+	```
+	if (ibex > 14)
+		sheds = 3;
+	else
+		sheds = 2;
+	help = 2 * sheds;
+	```
+
+3.	创建不确定循环：
+
+	```
+	readin: scanf("%d", &score);
+	if (score < 0)
+		goto stage2;
+	lots of statements
+	goto readin;
+	stage2: more stuff;
+	```
+
+	等价于：
+
+	```
+	scanf("%d", &score);
+	while (score <= 0) {
+		lots of statements
+		scanf("%d", &score);
+	}
+	more stuff;
+	```
+
+4.	跳转至循环末尾，并开始下一轮迭代。C 使用 continue 语句代替；
+
+5.	跳出循环。C 使用 break 语句。实际上，break 和 continue 是 goto 的特殊形式。使用 break 和 continue 的好处是：其名称已经表明它们的用法，而且
+	这些语句不使用标签，所以不用担心把标签放错位置导致的危险；
+
+6.	胡乱跳转至程序的不同部分。简而言之，不要这样做！
+
+但是，C 程序员可以接受一种 goto 的用法——出现问题时从一组嵌套循环中跳出（一条 break 语句只能跳出当前循环）：
+
+```
+while (funct > 0) {
+	for (i = 1; i <= 100; i ++) {
+		for (j = 0; j <= 50; j ++) {
+			其他语句
+			if (问题)
+				goto help;
+			其他语句
+		}
+		其他语句
+	}
+	其他语句
+}
+其他语句
+help: 语句
+```
+
+过度地使用 goto 语句，会让程序错综复杂。如果不熟悉 goto 语句，就不要使用它。如果习惯使用 goto 语句，试着改掉这个毛病。
