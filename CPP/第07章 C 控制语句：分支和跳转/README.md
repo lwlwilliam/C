@@ -136,3 +136,113 @@ if (range >= 90 && range <= 100)
 ```
 
 [wordcnt.c](wordcnt.c)
+
+## 条件运算符
+
+C 提供**条件表达式(conditional expression)**作为表达 if else 语句的一种便捷方式，该表达式使用`?:`条件运算符，称为三元运算符。该运算符分为两部分，需要 3 个运
+算对象。条件运算符是 C 语言中唯一的三元运算符。
+
+通用形式：`expression1 ? expression2 : expression3`。
+
+[paint.c](paint.c)
+
+条件运算符需要 3 个运算对象，每个运算对象都是一个表达式。
+
+## 循环辅助：continue 和 break
+
+continue 和 break 语句可以根据循环体中的测试结果来忽略一部分循环内容，甚至结束循环。
+
+### continue 语句
+
+3 种循环都可以使用 continue 语句。执行到该语句时，会跳过本次迭代的剩余部分，并开始下一轮迭代。
+
+[skippart.c](skippart.c)
+
+continue 还可用作占位符。例如，下面的循环读取并丢弃输入的数据，直至读到行末尾：
+
+```
+while (getchar() != '\n')
+	;
+```
+
+当程序已经读到一行中的某些内容，要跳至下一行开始处时，这种用法很方便。问题是，一般很难注意到一个单独的分号。如果使用 continue，可读性会更高：
+
+```
+while (getchar() != '\n')
+	continue;
+```
+
+### break 语句
+
+程序执行到循环中的 break 语句时，会终止包含它的循环，并继续执行下一阶段。
+
+[break.c](break.c)
+
+## 多重选择：switch 和 break
+
+[animals.c](animals.c)
+
+### switch 语句
+
+要对紧跟在 switch 后圆括号中的表达式求值。然后程序扫描**标签**（这里指，`case 'a':`、`case 'b':`等）列表，直到发现一个匹配的值为止。然后程序
+跳转到那一行。如果没有匹配的标签怎么办？如果有`default:`标签行，就跳转至该行；否则，程序继续执行在 switch 后面的语句。
+
+break 语句在其中的作用：让程序离开 switch 语句，跳至 switch 语句后面的下一条语句。如果没有 break 语句，就会从匹配标签开始执行到 switch 末尾。
+
+break 语句可用于循环和 switch 语句中，但是 continue 只能用于循环中。尽管如此，如果 switch 语句在一个循环中，continue 可作为 switch 语句的一部
+分。
+
+**switch 在圆括号中的测试表达式的值应该是一个整数值（包括 char 类型）。case 标签必须是整数类型（包括 char 类型）的常量或整型常量表达式（即，
+表达式中只包含整型常量）。**不能用变量作为 case 标签。
+
+### 只读每行的首字符
+
+[animals.c](animals.c)的另一个独特之处是它读取输入的方式。它采取了丢弃一行中其他字符的行为，这种行为经常出现在响应单字符的交互程序中。可以用
+下面的代码实现这样的行为：
+
+```
+while (getchar() != '\n')
+	continue;  /* 跳过输入行的其余部分 */
+```
+
+循环从输入中读取字符，包括按下 Enter 键产生的换行符。以上代码所做的只是读取并丢弃字符。由于最后丢弃的字符是换行符，所以下一个被读取的字符是下
+一行的首字母。
+
+### 多重标签
+
+[vowels.c](vowels.c)
+
+### switch 和 if else
+
+如果根据浮点类型的变量或表达式来选择时，就无法使用 switch；如果根据变量在某范围内决定程序流的去向，使用 switch 就很麻烦。
+
+## goto 语句
+
+没有 goto 语句 C 程序也能运行良好。Kernighan 和 Ritchie 提到 goto 语句"易被滥用"，并建议"谨慎使用，或者根本不用"。
+
+goto 语句有两部分：goto 和标签名。标签的全名遵循变量命名规则。如下：
+
+```
+goto part2;
+```
+
+要让这条语句正常工作，函数还必须包含另一条标为 part2 的语句，该语句以标签名后紧跟一个冒号开始：
+
+```
+part2: printf("Refined analysis:\n");
+```
+
+### 避免使用 goto
+
+goto 的常见情况：
+
+1.	处理包含多条语句的 if 语句：
+	
+	```
+	if (size > 12)
+		goto a;
+	goto b;
+	a: cost = cost * 1.05;
+	flag = 2;
+	b: bill = cost * flag;
+	```

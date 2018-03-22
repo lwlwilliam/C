@@ -1,4 +1,4 @@
-/* switch */
+/* animals.c -- 使用 switch 语句 */
 #include <stdio.h>
 #include <ctype.h>
 int main(void)
