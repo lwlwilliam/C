@@ -2,7 +2,6 @@
  * 这段代码主要帮助自己加深对面向对象的理解，剥开其神秘面纱
  * 代码的关键就是用指针把函数和结构体进行关联
  */
-#include <stdio.h>
 #include "./class.h"
 
 int main() {
@@ -17,14 +16,7 @@ int main() {
 	// 调用“类方法”
 	class.printA(&class);
 	class.printB(&class);
+
+	return 0;
 }
 
-// 这个就是“类方法”的具体实现了
-void printA(Class *class) {
-	printf("Class->A = %c\n", class->A);
-}
-
-// 这个就是“类方法”的具体实现了
-void printB(Class *class) {
-	printf("Class->B = %c\n", class->B);
-}
