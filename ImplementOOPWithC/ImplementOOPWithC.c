@@ -7,10 +7,10 @@
 int main() {
 	// 这类似于创建一个对象，并初始化属性和方法
 	Class class = {
-		A: 'A',
-		B: 'B',
-		printA: printA,
-		printB: printB,
+		.A = 'A',
+		.B = 'B',
+		.printA = printA,
+		.printB = printB,
 	};
 
 	// 调用“类方法”

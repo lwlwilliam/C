@@ -4,9 +4,10 @@
 typedef struct Alias{
 	char A;
 	char B;
-	void (*printA)(struct Alias *alias);
-	void (*printB)(struct Alias *alias);
+	void (*printA)(struct Alias *this);
+	void (*printB)(struct Alias *this);
 } Class;
 
-void printA(Class *class);
-void printB(Class *class);
+// “类方法”原型
+void printA(Class *this);
+void printB(Class *this);
