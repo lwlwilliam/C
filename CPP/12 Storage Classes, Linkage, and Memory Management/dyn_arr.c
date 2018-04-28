@@ -27,7 +27,7 @@ int main()
 	printf("Here are your %d entries:\n", number = i);
 	for (i = 0; i < number; i ++) {
 		printf("%7.2f", ptd[i]);
-		if (i % 7 == 6) {
+		if ((i + 1) % 7 == 0) {
 			putchar('\n');
 		}
 	}
