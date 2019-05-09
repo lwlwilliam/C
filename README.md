@@ -1,3 +1,3 @@
-### CNotes
+### c
 
 C study notes.
